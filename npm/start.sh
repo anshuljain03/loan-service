@@ -59,6 +59,7 @@ docker run -d \
   mysql:latest
 
 # Wait for a while until the MySQL server is up
+# Hacky
 sleep 45
 
 # Start the server
