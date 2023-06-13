@@ -1,5 +1,6 @@
-const bcrypt = require('bcrypt');
-const User = require('../models/User');
+const bcrypt = require('bcrypt'),
+
+    User = require('../models/User');
 
 // Note: The admin create flow should be separate, keeping it common for simplicity sake
 exports.createUser = async (req, res) => {
