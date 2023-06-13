@@ -1,17 +1,20 @@
-const express = require('express');
-const app = express();
-const sequelize = require('./config/database');
-const authRoutes = require('./routes/auth');
-const userRoutes = require('./routes/user');
-const loanRoutes = require('./routes/loan');
+const express = require('express'),
+
+    app = express(),
+
+    sequelize = require('./config/database'),
+
+    authRoutes = require('./routes/auth'),
+    userRoutes = require('./routes/user'),
+    loanRoutes = require('./routes/loan'),
+
+    PORT = 3000;
 
 app.use(express.json());
 
-app.use('/auth', authRoutes);
+app.use('/', authRoutes);
 app.use('/users', userRoutes);
 app.use('/loans', loanRoutes);
-
-const PORT = 3000;
 
 app.listen(PORT, () => {
     console.info(`Server listening on port ${PORT}`);
