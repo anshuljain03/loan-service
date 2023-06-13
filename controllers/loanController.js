@@ -30,7 +30,7 @@ exports.createLoan = async (req, res) => {
 
         await Repayment.bulkCreate(scheduledRepayments);
 
-        res.json({ message: 'Loan created successfully' });
+        res.json({ message: 'Loan created successfully', id: loan.id });
     }
     catch (error) {
         res.status(500).json({ message: 'Internal server error' });

@@ -29,7 +29,7 @@ describe('Loan Controller', () => {
 
             expect(Loan.create).toHaveBeenCalledWith({ amount: mockAmount, term: mockTerm, userId: mockUserId });
             expect(Repayment.bulkCreate).toHaveBeenCalledWith(expect.any(Array));
-            expect(res.json).toHaveBeenCalledWith({ message: 'Loan created successfully' });
+            expect(res.json).toHaveBeenCalledWith({ message: 'Loan created successfully', id: 1 });
         });
 
         it('should handle errors and return 500 status', async () => {
@@ -419,9 +419,9 @@ describe('Loan Controller', () => {
                 order: [['dueDate', 'ASC']]
             });
             expect(res.status).toHaveBeenCalledWith(400);
-            expect(res.json).toHaveBeenCalledWith(
-                { message: `Invalid repayment amount. Increase the amount to at least ${mockNextRepayment.amount}` }
-            );
+            expect(res.json).toHaveBeenCalledWith({
+                message: `Invalid repayment amount. Please increase the amount to at least ${mockNextRepayment.amount}`
+            });
         });
     });
 });
