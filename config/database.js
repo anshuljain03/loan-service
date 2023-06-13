@@ -1,16 +1,5 @@
-module.exports = {
-    development: {
-        username: 'your-username',
-        password: 'your-password',
-        database: 'your-database',
-        host: 'localhost',
-        dialect: 'mysql'
-    },
-    production: {
-        // Add production configuration if needed
-    }
-};
-
+// Using root ease of use. Ideally a new user should be created with fine grained permissions to
+// the database and tables being used
 const { Sequelize } = require('sequelize'),
     sequelize = new Sequelize('loan-db',
         'root',
